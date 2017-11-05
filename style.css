@@ -1,0 +1,188 @@
+body,h1,h2,h3,h4,h5,h6,pre {font-family: "Montserrat", sans-serif;}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+select {
+  border-style: none;
+}
+select:hover {
+  background-color: #ccc;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-size: cover;
+	  min-height: 100%;
+    background-image: url("images/cover.jpg");*/
+}
+.link {
+  cursor:pointer;
+}
+.relative-position {
+  position:relative;
+}
+.width-100 {
+  width:100%;
+}
+.we-know-image {
+  width:20em;
+  height:auto;
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+.w3-sidenav {
+  color:white;
+}
+.media-icons .facebook-main-page {
+  font-size: 25px;
+  color: white ;
+}
+.w3-padding-64 {
+    padding-bottom: 32px!important;
+}
+.w3-navbar li a {
+    padding: 16px;
+    float: left;
+}
+.aboutUsText {
+  padding-left: 7.1em;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: justify;
+
+}
+.overlay {
+   z-index: 10;
+   background:transparent;
+   position:relative;
+   width:100%;
+   height:480px; /* your iframe height */
+   top:480px;  /* your iframe height */
+   margin-top:-480px;  /* your iframe height */
+}
+#bigLogo {
+  height: 2em;
+  width: 9.8em;
+  background-image: url("images/logo.jpg");
+  background-size: cover ;
+  margin:12px;
+}
+#googleMap {
+  width:100%;
+  height:510px;
+}
+.afir {
+  width:100%;
+}
+.team-section-container{
+  margin-top:64px;
+  display: flex;
+  justify-content: center;
+}
+.cover-photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
+  -webkit-column-count: 3;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    3;
+  -moz-column-gap:      0px;
+  column-count:         3;
+  column-gap:           0px;
+  display: inline-block;
+  padding-left: 0;
+}
+@media (max-aspect-ratio: 1/1) {
+  .bgimg-1 {
+      /*background-position: 30%;*/
+      background-position-y: 5vh;
+      background-repeat: no-repeat;
+      padding-bottom: 50vh;
+      background-size: 100vw auto;
+      min-height: 0!important;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .aboutUsText {
+    padding-left: 0;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .w3-third, .w3-col.l3 {
+    width: 50%;
+    }
+  span.text-content{
+    font-size: 10px;
+    display:none;
+  }
+   .cover-photos {
+  -webkit-column-count: 1;
+  -moz-column-count:    1;
+  column-count:         1;
+   }
+}
+.cover-photos li{
+  list-style-type: none
+}
+.cover-photos img {
+  /* Just in case there are inline attributes */
+  width: 100% ;
+  height: auto !important;
+}
+img {
+    margin-bottom: -1px;
+}
+a {
+  color: black;
+  cursor: pointer;
+}
+.w3-sidenav a{
+  color:white;
+}
+span.text-content {
+  opacity: 1;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  cursor: pointer;
+  font-size: 2.2em;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 0%;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 51;
+}
+span.text-content span {
+  /*display: table-cell;*/
+  text-align: center;
+  /*vertical-align: middle;*/
+}
+
+.no-padding {
+  padding:0;
+}
+.thumb {
+  background-color: #000;
+  cursor:pointer;
+}
+.thumb:hover:after {
+  content:'\e003';
+  font-family: 'Glyphicons Halflings';
+  font-size: 2em;
+  color: #fff;
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none; /*Careful, this doesn't work on IE<10*/
+}
+.thumb img {
+  -webkit-transition: opacity ease-in .5s;
+  transition: opacity ease-in .5s;
+}
+.thumb img:hover {
+  opacity: .5;
+}

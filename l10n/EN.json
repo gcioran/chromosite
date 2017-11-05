@@ -1,0 +1,48 @@
+{
+"load" : {
+  "navigation" : {
+    "about" : "ABOUT",
+    "team" : "TEAM",
+    "projects" :"PROJECTS",
+    "contact" :"CONTACT",
+    "close" : "CLOSE"
+  },
+  "about" : {
+    "architecture" : "ARCHITECTURE",
+    "interior" : "INTERIOR DESIGN",
+    "rendering" : "RENDERING AND VISUALISATION",
+    "landscape" : "LANDSCAPE ARCHITECTURE",
+    "urbanism" : "URBANISM",
+    "consultancy" : "ARCHITECTURE CONSULTANCY"
+  },
+  "aboutUs" : {
+    "text" : "CHROMOSOME (Greek khrōma ‘colour’ + sōma ‘body) – A nucleus’s generic, structural and constant unit which has its own organization and functions, and which contains individual genetic information. Made up of a single macromolecule of double DNA, the transcript and interpretation of the information is done simultaneously. Regardless of the scale and nature of the projects, CHROMOSOME is founded on concepts and ideas that generate the shape, function and structure of the finite object. CHROMOSOME targets challenges imbedded in the 21st century, addressing projects in terms of sustainability, relation with the urban context, and clarity of the shape and space. CHROMOSOME transcends the passion for architecture to graphics, photography, music, fashion, dance and cinematography, based on the idea that combined arts tend to generate better concepts. The extended team of CHROMOSOME includes professional collaborators – engineers from all construction departments. Working with specialists throughout the process of creation materializes the solutions into a concrete finish.",
+    "hashtag" : "#DNA #CONCEPT #GENERATE #CONTEMPORARY #SIMPLICITY #SUSTAINABILITY #DIVERSITY #APPROACH #DESIGN #SCALE #RELATION #SENSES",
+    "projects" : "OUR PROJECTS"
+  },
+  "projects" : {
+    "title" : "PROJECTS"
+  },
+  "rendering" : {
+    "title" : "RENDERING"
+  },
+  "team" : {
+    "title" : "THE TEAM",
+    "job" : "architect"
+  },
+  "contact" : {
+    "title" : "CONTACT",
+    "address" : "433A Utvin, Timiș county, Romania",
+    "phone" : "Phone: +40744691187 | +40766454918",
+    "mail" : "Email: chromosome.architecture@gmail.com"
+  },
+  "footer" : {
+    "backToTop" : "Back to start"
+  },
+  "modalMeniu" : {
+    "images" : "IMAGES",
+    "drawings" : "DRAWINGS",
+    "description" :"DESCRIPTION"
+  }
+}
+}

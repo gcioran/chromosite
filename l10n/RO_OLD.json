@@ -1,0 +1,48 @@
+{
+"load" : {
+  "navigation" : {
+    "about" : "DESPRE NOI",
+    "team" : "ECHIPA",
+    "projects" : "PROIECTE",
+    "contact" : "CONTACT",
+    "close" : "INCHIDE"
+  },
+  "about" : {
+    "architecture" : "ARHITECTURA",
+    "interior" : "DESIGN DE INTERIOR",
+    "rendering" : "RANDARI",
+    "landscape" : "PEISAGISTICA",
+    "urbanism" : "URBANISM",
+    "consultancy" : "CONSULTANTA"
+  },
+  "aboutUs" : {
+    "text" : "CROMOZOM / CHROMOSOME (gr. khrōma ‘colour’ + sōma ‘body) – Unitate generică, structurală, constantă a nucleului, cu organizare și funcții proprii, care deține informația ereditară specifică. Este format dintr-o singură macromoleculă de ADN dublu. Transcrierea și traducerea se face simultan. Indiferent de scara sau natura proiectelor, pentru CHROMOSOME primează conceptul, ideea care conduce forma, funcțiunea și structura spre un obiect finit. CHROMOSOME răspunde diverselor provocări și are un crez ancorat în secolul XXI. Proiectele sunt abordate având în vedere sustenabilitatea, relația cu contextul urban, claritatea formei și a spațiului. Pasiunea CHROMOSOME merge dincolo de arhitectură, spre grafică, fotografie, muzică, fashion, dans si film. Adesea artele conexe generează conceptele. Echipa extinsa CHROMOSOME este formată din colaboratori profesioniști, incluzând ingineri din toate domeniile constructiilor. Colaborarea cu specialiștii pe tot parcursul creației concretizează soluțiile într-un final palpabil.",
+    "hashtag" : "#ADN #CONCEPT #GENERARE #CONTEMPORAN #SIMPLITATE #SUSTENABILITATE #DIVERSITATE #ABORDARE #DESIGN #SCARA #RELATIE #SIMTURI",
+    "projects" : "PROIECTELE NOASTRE"
+  },
+  "projects" : {
+    "title" : "PROIECTE"
+  },
+  "rendering" : {
+    "title" : "RANDARI"
+  },
+  "team" : {
+    "title" : "ECHIPA",
+    "job" : "Arhitect"
+  },
+  "contact" : {
+    "title" : "CONTACT",
+    "address" : "Sat Utvin, nr 433A, județul Timiș Romania",
+    "phone" : "Telefon: +40744691187 | +40766454918",
+    "mail" : "Email: chromosome.architecture@gmail.com"
+  },
+  "footer" : {
+    "backToTop" : "Inapoi la start"
+  },
+  "modalMeniu" : {
+    "images" : "IMAGINI",
+    "drawings" : "SCHIȚE",
+    "description" :"DESCRIERE"
+  }
+}
+}
