@@ -240,7 +240,7 @@
        }
         ]
       },
-      {path:'images/projects/100OFFICE/01.jpg',
+      {path:'images/projects/100OFFICE/05.jpg',
       text:'100% OFFICE',
       sideDescription: {
         title: '100% OFFICE',
