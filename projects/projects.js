@@ -78,6 +78,23 @@
        }
         ]
       },
+			{path:'images/projects/TLP conversion/1.jpg',
+      text:'TLP CONVERSION',
+      sideDescription: {
+        title: 'TLP CONVERSION',
+        body : {RO: 'Locație: Timișoara, România\nCategorie: Amenajare interioară\nSuprafață: 96mp',
+                EN: 'Location: Timișoara, România\nCategory: Interior design\nArea 96sq m'}
+        },
+      drawings:1,
+      src:[
+       {pic:'images/projects/TLP conversion/1.jpg'},
+       {pic:'images/projects/TLP conversion/2_RELEVEU SITE TL CONVERSION.jpg'},
+       {pic:'images/projects/TLP conversion/3_PLAN SITE TL CONVERSION.jpg'},
+       {text : {RO: 'Apartamentul este într-un bloc de locuințe nouăzecist, cu o structură în cadre necorelată cu planul de arhitectură. Stâlpii erau ieșiti din planul pereților, ghenele pentru înclălzirea centralizată erau redundante, iar bucătăria avea o compartimentare rezultată. Suprafețele s-au simplificat, plafonul s-a lăsat din beton aparent, iar între bucătărie și living s-a dat un gol în peretele nestructural. Astfel s-a obținut o zonă de zi mai utilă și mai deschisă.',
+                EN: 'Apartamentul este într-un bloc de locuințe nouăzecist, cu o structură în cadre necorelată cu planul de arhitectură. Stâlpii erau ieșiti din planul pereților, ghenele pentru înclălzirea centralizată erau redundante, iar bucătăria avea o compartimentare rezultată. Suprafețele s-au simplificat, plafonul s-a lăsat din beton aparent, iar între bucătărie și living s-a dat un gol în peretele nestructural. Astfel s-a obținut o zonă de zi mai utilă și mai deschisă.'}
+       }
+        ]
+      },
       {path:'images/projects/LE MONOLITHE/01.jpg',
       text:'LE MONOLITHE',
       sideDescription: {
