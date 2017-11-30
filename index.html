@@ -46,7 +46,6 @@
     <!-- Right-sided navbar links -->
     <li class="w3-right w3-hide-small w3-hide-medium">
       <a href="#about">{{ 'load.navigation.about' | translate }}</a>
-      <a href="#team"><i class="fa fa-user"></i> {{ 'load.navigation.team' | translate }}</a>
       <a href="#work"><i class="fa fa-th"></i> {{ 'load.navigation.projects' | translate }}</a>
       <a href="#contact"><i class="fa fa-envelope"></i> {{ 'load.navigation.contact' | translate }}</a>
       <a ng-click="changeLanguage ()" class="link"><i class="fa fa-language"></i>  {{key}}</a>
@@ -64,7 +63,6 @@
 <nav class="w3-sidenav w3-black w3-card-2 w3-animate-left w3-hide-large" ng-show="showme" id="mySidenav">
   <a href="javascript:void(0)" ng-click="showme=false" class="w3-large w3-padding-16">{{ 'load.navigation.close' | translate }} ×</a>
   <a href="#about" ng-click="showme=false">{{ 'load.navigation.about' | translate }}</a>
-  <a href="#team" ng-click="showme=false">{{ 'load.navigation.team' | translate }}</a>
   <a href="#work" ng-click="showme=false">{{ 'load.navigation.projects' | translate }}</a>
   <a href="#contact" ng-click="showme=false">{{ 'load.navigation.contact' | translate }}</a>
   <a ng-click="changeLanguage ()">{{key}}</a>
@@ -174,30 +172,15 @@
            width="100%"
            height="480"></iframe>
 </div> -->
-<!-- Team Section -->
-<div class="w3-container w3-padding-64" id="team">
-  <h3 class="w3-center">{{ 'load.team.title' | translate }}</h3>
-  <div class="w3-row-padding team-section-container">
-    <div class="w3-col l6 m6 w3-margin-bottom">
-      <div class="w3-card-2">
-        <img src="images/team.jpg" class="width-100" alt="Dana Ardelean Zeno Ardeleam">
-        <div class="w3-container">
-          <h5>Dana Ardelean, <span class="w3-opacity">{{ 'load.team.job' | translate }}</span></h5>
-          <h5>Zeno Ardelean, <span class="w3-opacity">{{ 'load.team.job' | translate }}</span></h5>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Contact Section -->
 <div class="w3-container w3-padding-64 w3-light-grey" id="contact">
   <h3 class="w3-center">{{ 'load.contact.title' | translate }}</h3>
   <div class="w3-row-padding" style="margin-top:64px">
     <div class="w3-half">
-      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i>{{ 'load.contact.address' | translate }}</p>
       <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> {{ 'load.contact.phone' | translate }}</p>
       <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> {{ 'load.contact.mail' | translate }}</p>
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i>{{ 'load.contact.address' | translate }}</p>
       <br>
     </div>
     <div class="w3-half">
