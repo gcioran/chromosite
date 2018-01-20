@@ -1,16 +1,7 @@
-var app = angular.module('picdemoLightbox', ['ui.bootstrap', 'ngTouch','ngAnimate','pascalprecht.translate','ngSanitize'])
+var app = angular.module('picdemoLightbox', ['ui.bootstrap', 'ngTouch','ngAnimate','pascalprecht.translate','ngSanitize', 'ngRoute'])
 
-app.config(['$translateProvider', function ($translateProvider) {
-  $translateProvider.useStaticFilesLoader({
-    prefix: 'l10n/',
-    suffix: '.json'
-});
-
-  $translateProvider.preferredLanguage('RO');
-	$translateProvider.useSanitizeValueStrategy('sce');
-}]);
-app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsService',
-	function ($scope, $modal, $translate, projectsService) {
+app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsService', '$route', '$routeParams', '$location',
+	function ($scope, $modal, $translate, projectsService, $route, $routeParams, $location) {
 		$scope.showRomanian =true;
 		$scope.key = 'EN';
 		$scope.changeLanguage = function () {
@@ -55,8 +46,6 @@ app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsSe
     $scope.imagesObj = projectsService;
 	  $scope.open=function(indx){
 			$scope.positionInArray=$scope.imagesObj.indexOf(indx);
-      console.log('indx', indx);
-      console.log('$scope.positionInArray', $scope.positionInArray);
       $scope.slides = $scope.imagesObj[$scope.positionInArray].src;
       $scope.modalInstance=$modal.open({
         animation: true,
@@ -78,4 +67,28 @@ app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsSe
     function addID(element, index) {
       element.id = index;
     }
+}]);
+
+app.config(['$translateProvider', function ($translateProvider, $routeProvider, $locationProvider, $provide) {
+  $translateProvider.useStaticFilesLoader({
+    prefix: 'l10n/',
+    suffix: '.json'
+});
+
+  $translateProvider.preferredLanguage('RO');
+	$translateProvider.useSanitizeValueStrategy('sce');
+
+  $routeProvider
+    .when('/', {
+        templateUrl : 'partials/home.html'
+    })
+  //   .when('/about', {
+  //       templateUrl : 'partials/about.html'
+  //   })
+  //   .when('/contac111t', {
+  //       templateUrl : 'angulat/pic-modal.html'
+  //   });
+
+// // use the HTML5 History API
+// $locationProvider.html5Mode(true);
 }]);

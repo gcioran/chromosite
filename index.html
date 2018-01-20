@@ -5,6 +5,7 @@
 <title>Chromosome Studio</title>
 <meta name="nosnippets">
 <meta charset="UTF-8">
+<!-- <base href="/"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -22,6 +23,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwW7Hfmgg0jlOrpk_qB8HkQQhXJUzOyik"></script>
 <script src='main.js'></script>
 <script src="bower-angular-translate/angular-translate.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
 <script src='angular/site-controller.js'></script>
 <script src="service/loader-static-files.js"></script>
 <script src="projects/projects01.js"></script>
@@ -78,6 +80,7 @@
     <a href="#" class="w3-hover-text-white"><i class="fa fa-linkedin"></i></a> -->
   </div>
 </header>
+<ng-view></ng-view> 
 
 <!-- About Section -->
 <div class="w3-container w3-padding-64" id="about">
