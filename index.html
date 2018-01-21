@@ -5,8 +5,8 @@
 <title>Chromosome Studio</title>
 <meta name="nosnippets">
 <meta charset="UTF-8">
-<!-- <base href="/"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwW7Hfmgg0jlOrpk_qB8HkQQhXJUzOyik"></script>
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,20 +20,21 @@
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-touch.js"</script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
 <script src="uib/ui-bootstrap-tpls-2.5.0.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwW7Hfmgg0jlOrpk_qB8HkQQhXJUzOyik"></script>
 <script src='main.js'></script>
 <script src="bower-angular-translate/angular-translate.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
 <script src='angular/site-controller.js'></script>
+<script src='components/map/map-contact.js'></script>
 <script src="service/loader-static-files.js"></script>
 <script src="projects/projects01.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-sanitize.js"></script>
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Chromosome Architecture Studio Timisoara">
-  <meta name="keywords" content="Arhitectura,Architecture,Timisoara,Design, Chromosome, Studio, Interior design, Utvin, arhitect, Dana Ardelean, Zeno Ardelean, proiectare, case, amenajare, randari, rendering, concept, contemporan, modern, minimalism, chromosome architecture, chromosome timisoara">
-  <meta name="author" content="Dana Ardelean, Zeno Ardelean">
+  <meta name="keywords" content="Arhitectura,Architecture,Timisoara,Design, Chromosome, Studio, Interior design, Utvin, arhitect, Dana Ardelean, proiectare, case, amenajare, randari, rendering, concept, contemporan, modern, minimalism, chromosome architecture, chromosome timisoara">
+  <meta name="author" content="Dana Ardelean">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/chromosite/">
 </head>
 <body ng-app="picdemoLightbox" ng-controller="PicModalCtrl"  ng-cloak>
 
@@ -41,15 +42,14 @@
 <div class="w3-top">
   <ul class="w3-navbar w3-white w3-card-2" id="myNavbar">
     <li>
-      <a href="#home" id="bigLogo"
+      <a href="home" id="bigLogo"
         <img src="images/logo.jpg" id="bigLogo" alt="Chromosome Architecture">
       </a>
     </li>
     <!-- Right-sided navbar links -->
     <li class="w3-right w3-hide-small w3-hide-medium">
-      <a href="#about">{{ 'load.navigation.about' | translate }}</a>
-      <a href="#work"><i class="fa fa-th"></i> {{ 'load.navigation.projects' | translate }}</a>
-      <a href="#contact"><i class="fa fa-envelope"></i> {{ 'load.navigation.contact' | translate }}</a>
+      <a href="projects"><i class="fa fa-th"></i> {{ 'load.navigation.projects' | translate }}</a>
+      <a href="contact"><i class="fa fa-envelope"></i> {{ 'load.navigation.contact' | translate }}</a>
       <a ng-click="changeLanguage ()" class="link"><i class="fa fa-language"></i>  {{key}}</a>
     </li>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
@@ -64,140 +64,12 @@
 <!-- Sidenav on small screens when clicking the menu icon -->
 <nav class="w3-sidenav w3-black w3-card-2 w3-animate-left w3-hide-large" ng-show="showme" id="mySidenav">
   <a href="javascript:void(0)" ng-click="showme=false" class="w3-large w3-padding-16">{{ 'load.navigation.close' | translate }} ×</a>
-  <a href="#about" ng-click="showme=false">{{ 'load.navigation.about' | translate }}</a>
-  <a href="#work" ng-click="showme=false">{{ 'load.navigation.projects' | translate }}</a>
-  <a href="#contact" ng-click="showme=false">{{ 'load.navigation.contact' | translate }}</a>
+  <a href="projects" ng-click="showme=false">{{ 'load.navigation.projects' | translate }}</a>
+  <a href="contact" ng-click="showme=false">{{ 'load.navigation.contact' | translate }}</a>
   <a ng-click="changeLanguage ()">{{key}}</a>
 </nav>
 
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-bottomleft w3-padding-xxlarge w3-text-grey w3-large media-icons">
-    <a href="https://www.facebook.com/chromosomearch/" class="facebook-main-page"><i class="fa fa-facebook-official"></i></a>
-    <!-- <a href="#" class="w3-hover-text-white"><i class="fa fa-flickr"></i></a>
-    <a href="#" class="w3-hover-text-white"><i class="fa fa-instagram"></i></a>
-    <a href="#" class="w3-hover-text-white"><i class="fa fa-twitter"></i></a>
-    <a href="#" class="w3-hover-text-white"><i class="fa fa-linkedin"></i></a> -->
-  </div>
-</header>
-<ng-view></ng-view> 
+<ng-view></ng-view>
 
-<!-- About Section -->
-<div class="w3-container w3-padding-64" id="about">
-  <div class="w3-row-padding w3-center" >
-    <div class="w3-third">
-      <i class="fa w3-margin-bottom w3-jumbo w3-center">&#xf170;</i>
-      <p class="w3-large">{{ 'load.about.architecture' | translate }} </p>
-    </div>
-    <div class="w3-third">
-      <i class="material-icons w3-margin-bottom w3-jumbo">&#xe16b;</i>
-      <p class="w3-large">{{ 'load.about.interior' | translate }}</p>
-    </div>
-    <div class="w3-third">
-      <i class="fa w3-margin-bottom w3-jumbo " style="color: #333">&#xf06e;</i>
-      <p class="w3-large">{{ 'load.about.rendering' | translate }}</p>
-    </div>
-    <div class="w3-third">
-      <i class="material-icons w3-margin-bottom w3-jumbo">&#xe407;</i>
-      <p class="w3-large">{{ 'load.about.landscape' | translate }}</p>
-    </div>
-    <div class="w3-third">
-      <i class="material-icons w3-margin-bottom w3-jumbo">&#xe7f1;</i>
-      <p class="w3-large">{{ 'load.about.urbanism' | translate }}</p>
-    </div>
-    <div class="w3-third">
-      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">{{ 'load.about.consultancy' | translate }}</p>
-    </div>
-  </div>
-</div>
-
-<!-- Promo Section - "We know design" -->
-<div id="weknow" class="w3-container w3-light-grey w3-padding-32">
-  <div class="w3-row-padding relative-position">
-      <img class="w3-image w3-right we-know-image" src="images/pag1.jpg" alt="architecture">
-      <p class="aboutUsText">
-      {{ 'load.aboutUs.text' | translate }}
-      <br><br> {{ 'load.aboutUs.hashtag' | translate }}
-      </p>
-      <p class="aboutUsText">
-        <a href="#work" class="w3-btn"><i class="fa fa-th" ></i> {{ 'load.aboutUs.projects' | translate }}</a>
-      </p>
-  </div>
-</div>
-
-<div class="w3-container" id="afir">
-    <img class="afir" src="images/afir.jpg" alt="afir">
-</div>
-
-<!-- Projects Section -->
-<div class="w3-container w3-padding-64" id="work">
-  <h3 class="w3-center">{{ 'load.projects.title' | translate }}</h3>
-  <div >
-    <ul class="cover-photos">
-      <li class="relative-position"
-          ng-repeat="x in imagesObj"
-          ng-mouseover="count=1"
-          ng-mouseleave="count=0"
-          class="w3-hover-grayscale"
-          ng-click="open(x)"
-          ng-hide="x.hasOwnProperty('rendering')">
-        <img ng-src="{{x.path}}" style="width:{{x.size}} !important"  alt="project proiect">
-        <span ng-show="count" class="text-content">{{x.text}}</span>
-      </li>
-   </ul>
-  </div>
-</div>
-
-<!-- Rendering Section -->
-<!-- <div class="w3-container w3-padding-64" id="work">
-  <h3 class="w3-center">{{ 'load.rendering.title' | translate }}</h3>
-  <div >
-    <ul class="cover-photos">
-      <li class="relative-position"
-          ng-repeat="x in imagesObj | filter:{rendering:showActive}"
-          ng-mouseover="count=1"
-          ng-mouseleave="count=0"
-          class="w3-hover-grayscale"
-          ng-click="open(x)"
-          ng-show="x.hasOwnProperty('rendering')">
-        <img ng-src="{{x.path}}" style="width:{{x.size}} !important"  alt="rendering randari">
-        <span ng-show="count" class="text-content">{{x.text}}</span>
-      </li>
-   </ul>
-  </div>
-</div> -->
-
-<!-- <div class="w3-container w3-padding-64 projectMap">
-    <div class="overlay" onClick="style.pointerEvents='none'"></div>
-   <iframe class="w3-greyscale-min"
-           src="https://www.google.com/maps/d/u/1/embed?mid=1hOD7oodlmluyAN9imTLU0aFK3fE"
-           width="100%"
-           height="480"></iframe>
-</div> -->
-
-<!-- Contact Section -->
-<div class="w3-container w3-padding-64 w3-light-grey" id="contact">
-  <h3 class="w3-center">{{ 'load.contact.title' | translate }}</h3>
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-half">
-      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> {{ 'load.contact.phone' | translate }}</p>
-      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> {{ 'load.contact.mail' | translate }}</p>
-      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i>{{ 'load.contact.address' | translate }}</p>
-      <br>
-    </div>
-    <div class="w3-half">
-      <!-- Add Google Maps -->
-      <div id="googleMap" class="w3-greyscale-max"></div>
-    </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-32">
-  <a href="#home" class="w3-btn w3-padding w3-light-grey w3-hover-grey"><i class="fa fa-arrow-up w3-margin-right"></i>{{ 'load.footer.backToTop' | translate }}</a>
-  <div class="w3-xlarge w3-section">
-  </div>
-</footer>
 </body>
 </html>

@@ -1,0 +1,18 @@
+<!-- Projects Section -->
+<div class="w3-container w3-padding-64" id="projects">
+  <!-- <h3 class="w3-center">{{ 'load.projects.title' | translate }}</h3> -->
+  <div >
+    <ul class="cover-photos">
+      <li class="relative-position"
+          ng-repeat="x in imagesObj"
+          ng-mouseover="count=1"
+          ng-mouseleave="count=0"
+          class="w3-hover-grayscale"
+          ng-click="open(x)"
+          ng-hide="x.hasOwnProperty('rendering')">
+        <img ng-src="{{x.path}}" style="width:{{x.size}} !important"  alt="project proiect">
+        <span ng-show="count" class="text-content">{{x.text}}</span>
+      </li>
+   </ul>
+  </div>
+</div>

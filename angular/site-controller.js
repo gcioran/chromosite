@@ -1,18 +1,18 @@
-var app = angular.module('picdemoLightbox', ['ui.bootstrap', 'ngTouch','ngAnimate','pascalprecht.translate','ngSanitize', 'ngRoute'])
+var app = angular.module('picdemoLightbox', ['ui.bootstrap', 'ngTouch','ngAnimate','pascalprecht.translate','ngSanitize', 'ngRoute']);
 
 app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsService', '$route', '$routeParams', '$location',
-	function ($scope, $modal, $translate, projectsService, $route, $routeParams, $location) {
-		$scope.showRomanian =true;
-		$scope.key = 'EN';
-		$scope.changeLanguage = function () {
-    	$translate.use($scope.key);
-			$scope.showRomanian = ('RO' === $scope.key ) ? true : false;
-			$scope.key = (($scope.key) === "EN") ? "RO" : "EN";
-  	};
+function ($scope, $modal, $translate, projectsService) {
+    $scope.showRomanian =true;
+    $scope.key = 'EN';
+    $scope.changeLanguage = function () {
+			$translate.use($scope.key);
+			$scope.showRomanian = 'RO' === $scope.key  ? true : false;
+			$scope.key = $scope.key === 'EN' ? 'RO' : 'EN';
+		};
 		$scope.positionInArray=0;
     $scope.count = 0;
 		$scope.setDrawingsActive = function() {
-      $scope.slides.active = $scope.imagesObj[$scope.positionInArray].drawings;
+			$scope.slides.active = $scope.imagesObj[$scope.positionInArray].drawings;
 		};
 		$scope.setImagesActive = function() {
       $scope.slides.active = 0;
@@ -25,26 +25,27 @@ app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsSe
       let index = $scope.imagesObj[$scope.positionInArray].src.length -1;
       return !!$scope.imagesObj[$scope.positionInArray].src[index].text;
     };
-    $scope.swipeNext = function(index) {
+    $scope.swipeNext = function() {
       const lastIndex = $scope.imagesObj[$scope.positionInArray].src.length -1;
       if (lastIndex === $scope.slides.active) {
         $scope.slides.active = -1;
       }
       $scope.slides.active = $scope.slides.active +1;
-    }
-    $scope.swipePrevious = function(index) {
+    };
+    $scope.swipePrevious = function() {
       const lastIndex = $scope.imagesObj[$scope.positionInArray].src.length -1;
       if ($scope.slides.active === 0) {
         $scope.slides.active = lastIndex + 1;
       }
       $scope.slides.active = $scope.slides.active -1;
-    }
-    $scope.$watch('active', function(newIndex, oldIndex) {
-    if (Number.isFinite(newIndex) && newIndex!==oldIndex) {
-    }
-  });
+    };
+  //   $scope.$watch('active', function(newIndex, oldIndex) {
+  //   if (Number.isFinite(newIndex) && newIndex!==oldIndex) {
+  //   }
+  // });
     $scope.imagesObj = projectsService;
-	  $scope.open=function(indx){
+
+  $scope.open=function(indx){
 			$scope.positionInArray=$scope.imagesObj.indexOf(indx);
       $scope.slides = $scope.imagesObj[$scope.positionInArray].src;
       $scope.modalInstance=$modal.open({
@@ -54,8 +55,8 @@ app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsSe
       });
     };
 
-	  $scope.ok = function () {
-			$scope.modalInstance.close();
+  $scope.ok = function () {
+      $scope.modalInstance.close();
 		};
 
     $scope.imagesObj.forEach(addIndexes);
@@ -69,7 +70,7 @@ app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsSe
     }
 }]);
 
-app.config(['$translateProvider', function ($translateProvider, $routeProvider, $locationProvider, $provide) {
+app.config(['$translateProvider', '$routeProvider', '$locationProvider', function ($translateProvider, $routeProvider, $locationProvider) {
   $translateProvider.useStaticFilesLoader({
     prefix: 'l10n/',
     suffix: '.json'
@@ -80,15 +81,19 @@ app.config(['$translateProvider', function ($translateProvider, $routeProvider, 
 
   $routeProvider
     .when('/', {
-        templateUrl : 'partials/home.html'
+        templateUrl : 'pages/home.html'
     })
-  //   .when('/about', {
-  //       templateUrl : 'partials/about.html'
-  //   })
-  //   .when('/contac111t', {
-  //       templateUrl : 'angulat/pic-modal.html'
-  //   });
+    .when('/contact', {
+        templateUrl : 'pages/contact.html',
+        controller : 'PicModalCtrl'
+    })
+    .when('/projects', {
+        templateUrl : 'pages/projects.html'
+    })
+    .otherwise({
+        redirectTo: '/'
+});
 
-// // use the HTML5 History API
-// $locationProvider.html5Mode(true);
+// use the HTML5 History API
+    $locationProvider.html5Mode(true);
 }]);
