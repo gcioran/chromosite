@@ -1,4 +1,4 @@
-var app = angular.module('picdemoLightbox', ['ui.bootstrap', 'ngTouch','ngAnimate','pascalprecht.translate','ngSanitize', 'ngRoute']);
+var app = angular.module('picdemoLightbox', ['ui.bootstrap', 'ngTouch','ngAnimate','pascalprecht.translate','ngSanitize', 'ngRoute', 'ui.router']);
 
 app.controller('PicModalCtrl', ['$scope', '$uibModal', '$translate', 'projectsService', '$route', '$routeParams', '$location',
 function ($scope, $modal, $translate, projectsService) {
@@ -70,7 +70,8 @@ function ($scope, $modal, $translate, projectsService) {
     }
 }]);
 
-app.config(['$translateProvider', '$routeProvider', '$locationProvider', function ($translateProvider, $routeProvider, $locationProvider) {
+app.config(['$stateProvider','$translateProvider', '$routeProvider', '$locationProvider',
+  function ($stateProvider,$translateProvider, $routeProvider, $locationProvider) {
   $translateProvider.useStaticFilesLoader({
     prefix: 'l10n/',
     suffix: '.json'
@@ -93,6 +94,54 @@ app.config(['$translateProvider', '$routeProvider', '$locationProvider', functio
     .otherwise({
         redirectTo: '/'
 });
+
+$stateProvider
+
+   // define home route "/"
+   .state('home', {
+     url: '/'
+   })
+
+   // define modal route "/modal"
+   .state('modal', {
+     url: '/modal',
+
+     // trigger the modal to open when this route is active
+     onEnter: ['$stateParams', '$state', '$modal',
+       function($stateParams, $state, $modal) {
+         $modal
+
+           // handle modal open
+           .open({
+             animation: true,
+             templateUrl: 'angular/pic-modal.html',
+             controller: ['$scope',
+               function($scope) {
+                 // handle after clicking Cancel button
+                 $scope.cancel = function() {
+                   $scope.$dismiss();
+                 };
+                 // close modal after clicking OK button
+                 $scope.ok = function() {
+                   $scope.$close(true);
+                 };
+               }
+             ]
+           })
+
+           // change route after modal result
+           .result.then(function() {
+             // change route after clicking OK button
+             $state.transitionTo('home');
+           }, function() {
+             // change route after clicking Cancel button or clicking background
+             $state.transitionTo('home');
+           });
+
+       }
+     ]
+
+   });
 
 // use the HTML5 History API
     $locationProvider.html5Mode(true);
