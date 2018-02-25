@@ -7,8 +7,8 @@
           ng-repeat="x in imagesObj"
           ng-mouseover="count=1"
           ng-mouseleave="count=0"
-          class="w3-hover-grayscale"
           ng-click="open(x)"
+          class="w3-hover-grayscale"
           ng-hide="x.hasOwnProperty('rendering')">
         <img ng-src="{{x.path}}" style="width:{{x.size}} !important"  alt="project proiect">
         <span ng-show="count" class="text-content">{{x.text}}</span>
@@ -16,3 +16,6 @@
    </ul>
   </div>
 </div>
+
+          <!-- ng-click="open(x)" -->
+                    <!-- ng-href="projects/{{x}}" -->

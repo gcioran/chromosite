@@ -3,6 +3,14 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 <title>Chromosome Studio</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Chromosome Architecture Studio Timisoara">
+  <meta name="keywords" content="Arhitectura,Architecture,Timisoara,Design, Chromosome, Studio, Interior design, Utvin, arhitect, Dana Ardelean, proiectare, case, amenajare, randari, rendering, concept, contemporan, modern, minimalism, chromosome architecture, chromosome timisoara">
+  <meta name="author" content="Dana Ardelean">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+</head>
 <meta name="nosnippets">
 <meta charset="UTF-8">
 <meta http-equiv="expires" content="0">
@@ -30,21 +38,13 @@
 <script src="service/loader-static-files.js"></script>
 <script src="project_repo/projects02.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-sanitize.js"></script>
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Chromosome Architecture Studio Timisoara">
-  <meta name="keywords" content="Arhitectura,Architecture,Timisoara,Design, Chromosome, Studio, Interior design, Utvin, arhitect, Dana Ardelean, proiectare, case, amenajare, randari, rendering, concept, contemporan, modern, minimalism, chromosome architecture, chromosome timisoara">
-  <meta name="author" content="Dana Ardelean">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="/">
-</head>
 <body ng-app="picdemoLightbox" ng-controller="PicModalCtrl"  ng-cloak>
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <ul class="w3-navbar w3-white w3-card-2" id="myNavbar">
     <li>
-      <a href="home" id="bigLogo"
+      <a href="/" id="bigLogo"
         <img src="images/logo.jpg" id="bigLogo" alt="Chromosome Architecture">
       </a>
     </li>
@@ -71,7 +71,7 @@
   <a ng-click="changeLanguage ()">{{key}}</a>
 </nav>
 
-<ng-view></ng-view>
+<div ui-view></div>
 <!-- <div ui-view></div> -->
 
 </body>

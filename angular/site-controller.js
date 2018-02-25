@@ -11,53 +11,12 @@ function ($scope, $modal, $translate, projectsService) {
 		};
 		$scope.positionInArray=0;
     $scope.count = 0;
-		$scope.setDrawingsActive = function() {
-			$scope.slides.active = $scope.imagesObj[$scope.positionInArray].drawings;
-		};
-		$scope.setImagesActive = function() {
-      $scope.slides.active = 0;
-		};
-    $scope.setDescriptionActive = function() {
-      let index = $scope.imagesObj[$scope.positionInArray].src.length -1;
-      $scope.slides.active = index;
-    };
-    $scope.hasDescription = function() {
-      let index = $scope.imagesObj[$scope.positionInArray].src.length -1;
-      return !!$scope.imagesObj[$scope.positionInArray].src[index].text;
-    };
-    $scope.swipeNext = function() {
-      const lastIndex = $scope.imagesObj[$scope.positionInArray].src.length -1;
-      if (lastIndex === $scope.slides.active) {
-        $scope.slides.active = -1;
-      }
-      $scope.slides.active = $scope.slides.active +1;
-    };
-    $scope.swipePrevious = function() {
-      const lastIndex = $scope.imagesObj[$scope.positionInArray].src.length -1;
-      if ($scope.slides.active === 0) {
-        $scope.slides.active = lastIndex + 1;
-      }
-      $scope.slides.active = $scope.slides.active -1;
-    };
-  //   $scope.$watch('active', function(newIndex, oldIndex) {
-  //   if (Number.isFinite(newIndex) && newIndex!==oldIndex) {
-  //   }
-  // });
     $scope.imagesObj = projectsService;
 
   $scope.open=function(indx){
 			$scope.positionInArray=$scope.imagesObj.indexOf(indx);
-      $scope.slides = $scope.imagesObj[$scope.positionInArray].src;
-      $scope.modalInstance=$modal.open({
-        animation: true,
-        templateUrl: 'angular/pic-modal.html',
-        scope: $scope
-      });
+      location.href = '/projects/'+ $scope.positionInArray;
     };
-
-  $scope.ok = function () {
-      $scope.modalInstance.close();
-		};
 
     $scope.imagesObj.forEach(addIndexes);
 
@@ -70,8 +29,8 @@ function ($scope, $modal, $translate, projectsService) {
     }
 }]);
 
-app.config(['$stateProvider','$translateProvider', '$routeProvider', '$locationProvider',
-  function ($stateProvider,$translateProvider, $routeProvider, $locationProvider) {
+app.config(['$stateProvider','$translateProvider', '$routeProvider', '$locationProvider', '$urlRouterProvider',
+  function ($stateProvider,$translateProvider, $routeProvider, $locationProvider, $urlRouterProvider) {
   $translateProvider.useStaticFilesLoader({
     prefix: 'l10n/',
     suffix: '.json'
@@ -80,44 +39,70 @@ app.config(['$stateProvider','$translateProvider', '$routeProvider', '$locationP
   $translateProvider.preferredLanguage('RO');
 	$translateProvider.useSanitizeValueStrategy('sce');
 
-  $routeProvider
-    .when('/', {
-        templateUrl : 'pages/home.html'
-    })
-    .when('/contact', {
-        templateUrl : 'pages/contact.html',
-        controller : 'PicModalCtrl'
-    })
-    .when('/projects', {
-        templateUrl : 'pages/projects.html'
-    })
-    .otherwise({
-        redirectTo: '/'
-});
-
 $stateProvider
-
-   // define home route "/"
    .state('home', {
-     url: '/'
+     url: '/',
+     templateUrl: 'pages/home.html',
+     controller: 'PicModalCtrl'
    })
 
-   // define modal route "/modal"
+   .state('contact', {
+     url: '/contact',
+     templateUrl: 'pages/contact.html',
+     controller: 'PicModalCtrl'
+   })
+
+   .state('projects', {
+     url: '/projects',
+     templateUrl: 'pages/projects.html',
+     controller: 'PicModalCtrl'
+   })
+
    .state('modal', {
-     url: '/modal',
+     url: '/projects{page:(?:/[^/]+)?}',
 
      // trigger the modal to open when this route is active
-     onEnter: ['$stateParams', '$state', '$modal',
+     onEnter: ['$stateParams', '$state', '$uibModal',
        function($stateParams, $state, $modal) {
-         $modal
+         var projectIndex = $stateParams.page.slice(1);
 
-           // handle modal open
+         if (projectIndex) $modal
            .open({
              animation: true,
              templateUrl: 'angular/pic-modal.html',
-             controller: ['$scope',
-               function($scope) {
-                 // handle after clicking Cancel button
+             controller: ['$scope', 'projectsService',
+               function($scope, projectsService) {
+                 $scope.positionInArray = projectIndex;
+                 $scope.imagesObj = projectsService;
+                 $scope.slides = $scope.imagesObj[projectIndex].src;
+                 $scope.setDrawingsActive = function() {
+                   $scope.slides.active = $scope.imagesObj[$scope.positionInArray].drawings;
+                 };
+                 $scope.setImagesActive = function() {
+                    $scope.slides.active = 0;
+                 };
+                  $scope.setDescriptionActive = function() {
+                    let index = $scope.imagesObj[$scope.positionInArray].src.length -1;
+                    $scope.slides.active = index;
+                  };
+                  $scope.hasDescription = function() {
+                    let index = $scope.imagesObj[$scope.positionInArray].src.length -1;
+                    return !!$scope.imagesObj[$scope.positionInArray].src[index].text;
+                  };
+                  $scope.swipeNext = function() {
+                    const lastIndex = $scope.imagesObj[$scope.positionInArray].src.length -1;
+                    if (lastIndex === $scope.slides.active) {
+                      $scope.slides.active = -1;
+                    }
+                    $scope.slides.active = $scope.slides.active +1;
+                  };
+                  $scope.swipePrevious = function() {
+                    const lastIndex = $scope.imagesObj[$scope.positionInArray].src.length -1;
+                    if ($scope.slides.active === 0) {
+                      $scope.slides.active = lastIndex + 1;
+                    }
+                    $scope.slides.active = $scope.slides.active -1;
+                  };
                  $scope.cancel = function() {
                    $scope.$dismiss();
                  };
@@ -132,16 +117,18 @@ $stateProvider
            // change route after modal result
            .result.then(function() {
              // change route after clicking OK button
-             $state.transitionTo('home');
+             $state.transitionTo('projects');
            }, function() {
              // change route after clicking Cancel button or clicking background
-             $state.transitionTo('home');
+             $state.transitionTo('projects');
            });
 
        }
      ]
 
    });
+
+   $urlRouterProvider.otherwise('/');
 
 // use the HTML5 History API
     $locationProvider.html5Mode(true);
