@@ -13,9 +13,8 @@ function ($scope, $modal, $translate, projectsService) {
     $scope.count = 0;
     $scope.imagesObj = projectsService;
 
-  $scope.open=function(indx){
-			$scope.positionInArray=$scope.imagesObj.indexOf(indx);
-      location.href = '/projects/'+ $scope.positionInArray;
+  $scope.open=function(indx){;
+      location.href = '/projects/'+ indx.text;
     };
 
     $scope.imagesObj.forEach(addIndexes);
@@ -38,6 +37,13 @@ app.config(['$stateProvider','$translateProvider', '$routeProvider', '$locationP
 
   $translateProvider.preferredLanguage('RO');
 	$translateProvider.useSanitizeValueStrategy('sce');
+
+  function getProjectIndex(projectName, projectObj) {
+    project = projectObj.filter(function(element) {
+      return element.text === projectName;
+    });
+    return projectObj.indexOf(project[0]);
+  }
 
 $stateProvider
    .state('home', {
@@ -64,14 +70,15 @@ $stateProvider
      // trigger the modal to open when this route is active
      onEnter: ['$stateParams', '$state', '$uibModal',
        function($stateParams, $state, $modal) {
-         var projectIndex = $stateParams.page.slice(1);
+         const projectName = $stateParams.page.slice(1);
 
-         if (projectIndex) $modal
+         if (projectName) $modal
            .open({
              animation: true,
              templateUrl: 'angular/pic-modal.html',
              controller: ['$scope', 'projectsService',
                function($scope, projectsService) {
+                 const projectIndex = getProjectIndex(projectName, projectsService);
                  $scope.positionInArray = projectIndex;
                  $scope.imagesObj = projectsService;
                  $scope.slides = $scope.imagesObj[projectIndex].src;
@@ -82,11 +89,11 @@ $stateProvider
                     $scope.slides.active = 0;
                  };
                   $scope.setDescriptionActive = function() {
-                    let index = $scope.imagesObj[$scope.positionInArray].src.length -1;
+                    var index = $scope.imagesObj[$scope.positionInArray].src.length -1;
                     $scope.slides.active = index;
                   };
                   $scope.hasDescription = function() {
-                    let index = $scope.imagesObj[$scope.positionInArray].src.length -1;
+                    var index = $scope.imagesObj[$scope.positionInArray].src.length -1;
                     return !!$scope.imagesObj[$scope.positionInArray].src[index].text;
                   };
                   $scope.swipeNext = function() {

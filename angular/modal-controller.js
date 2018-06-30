@@ -29,15 +29,9 @@ var modalController = function ($scope, $modal, $translate, projectsService) {
       }
       $scope.slides.active = $scope.slides.active -1;
     };
-  //   $scope.$watch('active', function(newIndex, oldIndex) {
-  //   if (Number.isFinite(newIndex) && newIndex!==oldIndex) {
-  //   }
-  // });
     $scope.imagesObj = projectsService;
 
   $scope.open=function(indx){
-    console.log('indx', indx);
-			// $scope.positionInArray=$scope.imagesObj.indexOf(indx);
       $scope.slides = $scope.imagesObj[indx].src;
       $scope.modalInstance=$modal.open({
         animation: true,

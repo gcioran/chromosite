@@ -2,8 +2,8 @@
 <html>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-<title>Chromosome Studio</title>
 <head>
+  <title>Chromosome Studio Architecture</title>
   <meta charset="UTF-8">
   <meta name="description" content="Chromosome Architecture Studio Timisoara">
   <meta name="keywords" content="Arhitectura,Architecture,Timisoara,Design, Chromosome, Studio, Interior design, Utvin, arhitect, Dana Ardelean, proiectare, case, amenajare, randari, rendering, concept, contemporan, modern, minimalism, chromosome architecture, chromosome timisoara">
@@ -36,7 +36,7 @@
 <script src='angular/site-controller.js'></script>
 <script src='components/map/map-contact.js'></script>
 <script src="service/loader-static-files.js"></script>
-<script src="project_repo/projects02.js"></script>
+<script src="project_repo/projects03.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-sanitize.js"></script>
 <body ng-app="picdemoLightbox" ng-controller="PicModalCtrl"  ng-cloak>
 
@@ -52,7 +52,7 @@
     <li class="w3-right w3-hide-small w3-hide-medium">
       <a href="projects"><i class="fa fa-th"></i> {{ 'load.navigation.projects' | translate }}</a>
       <a href="contact"><i class="fa fa-envelope"></i> {{ 'load.navigation.contact' | translate }}</a>
-      <a ng-click="changeLanguage ()" class="link"><i class="fa fa-language"></i>  {{key}}</a>
+      <a ng-click="changeLanguage()" class="link"><i class="fa fa-language"></i>  {{key}}</a>
     </li>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
     <li>
@@ -68,7 +68,7 @@
   <a href="javascript:void(0)" ng-click="showme=false" class="w3-large w3-padding-16">{{ 'load.navigation.close' | translate }} ×</a>
   <a href="projects" ng-click="showme=false">{{ 'load.navigation.projects' | translate }}</a>
   <a href="contact" ng-click="showme=false">{{ 'load.navigation.contact' | translate }}</a>
-  <a ng-click="changeLanguage ()">{{key}}</a>
+  <a ng-click="changeLanguage()">{{key}}</a>
 </nav>
 
 <div ui-view></div>
