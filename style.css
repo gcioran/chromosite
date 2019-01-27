@@ -13,7 +13,7 @@ select:hover {
 .bgimg-1 {
     background-size: cover;
 	  height: 100vh;
-    background-image: url("images/cover.jpg");*/
+    background-image: url("/images/cover.jpg");
 }
 .link {
   cursor:pointer;
@@ -74,7 +74,7 @@ select:hover {
 #bigLogo {
   /* height: 2em; */
   width: 9.8em;
-  background-image: url("images/logo.jpg");
+  background-image: url("/images/logo.jpg");
   background-size: cover ;
   margin:12px;
 }

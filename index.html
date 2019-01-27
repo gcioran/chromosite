@@ -13,16 +13,18 @@
 <meta charset="UTF-8">
 <meta http-equiv="expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<!-- build:css css/main.css -->
+
 <link rel="shortcut icon" href="images/logo_small.jpg" />
-<link rel="stylesheet" href="style.css">
+
+<!-- build:css css/main.css -->
 <link rel="stylesheet" href="angular/pic-modal.css">
+<link rel="stylesheet" href="style.css">
 <!-- endbuild -->
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
@@ -33,6 +35,7 @@
 <script src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
 <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 <script src="service/loader-static-files.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwW7Hfmgg0jlOrpk_qB8HkQQhXJUzOyik"></script>  
 
 <body ng-app="picdemoLightbox" ng-controller="PicModalCtrl"  ng-cloak>
 <!-- Navbar (sit on top) -->
@@ -68,7 +71,6 @@
 <div ui-view></div>
 <!-- <div ui-view></div> -->
 <!-- build:js js/main.js -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwW7Hfmgg0jlOrpk_qB8HkQQhXJUzOyik"></script>  
 <script src='main.js'></script>
 <script src='angular/site-controller.js'></script>
 <script src='components/map/map-contact.js'></script>
