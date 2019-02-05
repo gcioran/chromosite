@@ -13,10 +13,18 @@ var htmlmin = require('gulp-htmlmin');
 
 gulp.task('browser-sync', function () {
    var files = [
-      './*.html',
-      './css/*.css',
-      './img/*.{png,jpg,gif}',
-      './js/*.js'
+     './*.html',
+     './pages/*.html',
+     './components/map/*.html',
+     './angular/*.html',
+      './*.css',
+      'angular/*.css',
+      './images/*.{png,jpg,gif}',
+      'images/**/**/*.{png,jpg,gif}',
+      './*.js',
+      './components/map/*.js',
+      './angular/*.js',
+      './map/*.js',
    ];
 
    browserSync.init(files, {
