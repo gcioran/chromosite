@@ -10,16 +10,24 @@
       </div>
     </div>
     <button type="button" class="close close-lg" ng-click="ok()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-    <div id="modal-description-panel" class="w3-sidebar" >
+    <div class="modal-description-panel">
       <div>
-        <ol class="w3-left modal-side-buttons" style="color:black; padding-left:10px;list-style: none;width:100%">
-          <li><a ng-click="setDescriptionActive()" ng-show="hasDescription()">{{ 'load.modalMeniu.description' | translate }}</a></li>
+        <ol class="w3-left modal-side-buttons">
+          <li>
+            <a ng-click="setDescriptionActive()" ng-show="hasDescription()">
+             <b>{{ 'load.modalMeniu.description' | translate }}</b>
+            </a>
+          </li>
           <li><a ng-click="setImagesActive()"
-                 ng-show="hasDescription() || imagesObj[positionInArray].drawings">{{ 'load.modalMeniu.images' | translate }}</a></li>
-          <li><a ng-click="setDrawingsActive()" ng-show="imagesObj[positionInArray].drawings">{{ 'load.modalMeniu.drawings' | translate }}</a></li>
+                 ng-show="hasDescription() || imagesObj[positionInArray].drawings">
+                 <b>{{ 'load.modalMeniu.images' | translate }}</b>
+          </a></li>
+          <li><a ng-click="setDrawingsActive()" ng-show="imagesObj[positionInArray].drawings">
+            <b>{{ 'load.modalMeniu.drawings' | translate }}</b>
+          </a></li>
         </ol>
       </div>
-      <div class="w3-left description-container" style="color:black; padding-left:10px;padding-top:3vh">
+      <div class="w3-left description-container">
           <div><b>{{imagesObj[positionInArray].sideDescription.title}}</b></div>
           <p style="white-space: pre-wrap;" ng-show="showRomanian">
 {{imagesObj[positionInArray].sideDescription.body.RO}}

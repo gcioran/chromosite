@@ -13,7 +13,7 @@ function ($scope, $modal, $translate, projectsService) {
     $scope.count = 0;
     $scope.imagesObj = projectsService;
 
-  $scope.open=function(indx){;
+  $scope.open=function(indx){
       location.href = '/projects/'+ indx.text;
     };
 

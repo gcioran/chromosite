@@ -98,7 +98,6 @@
 				body : {RO: 'Locație: Utvin, România\nCategorie: Amenajare interioară\nSuprafață: 65 mp\n\nAutor: Dana Ardelean, Zeno Ardelean\nFoto: Norbert Ianko',
 								EN: 'Location: Utvin, România\nCategory: Interior design\nArea: 65 sq m\n\nAuthor: Dana Ardelean, Zeno Ardelean\nPhoto: Norbert Ianko'}
 				},
-			drawings:2,
 			src:[
 				{pic:'images/projects/CHROMOSOME OFFICE/04.jpg'},
 				{pic:'images/projects/CHROMOSOME OFFICE/location.jpg'},
